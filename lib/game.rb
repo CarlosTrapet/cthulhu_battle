@@ -17,7 +17,6 @@ class Game
     end
   end
 
-
   # *** REFACTOR?? TOO MESSY?? *****
   def switch_turns
     if @current_turn == @player_1
@@ -25,5 +24,9 @@ class Game
     elsif @current_turn == @player_2
       @current_turn = @player_1
     end
+  end
+
+  def game_over?
+    @player_1.hit_points <= 0 || @player_2.hit_points <= 0
   end
 end

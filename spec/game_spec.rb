@@ -4,7 +4,6 @@ require 'player'
 describe Game do
 
   subject(:game) {described_class.new("Waitrose", "Tesco")}
-  # let(:player_1) { instance_double (Player, :reduce_hit_points => 40)}
   let(:player_1) { game.player_1 }
   let(:player_2) { game.player_2 }
 
@@ -16,8 +15,6 @@ describe Game do
 
   context "#attack" do 
     it "reduces player's hit points by 10" do
-      # player_1.non_existant_method 
-      # expect(player_1).to receive(:reduce_hit_points)
       expect { game.attack }.to change {player_2.hit_points}.by (-Player::DEFAULT_ATTACK)
     end
   end
