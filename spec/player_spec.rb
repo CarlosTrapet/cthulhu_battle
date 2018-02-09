@@ -15,7 +15,7 @@ describe Player do
 
   context "#reduce_hit_points" do
     it "reduces player 2 points" do
-    expect{player_1.reduce_hit_points}.to change{player_1.hit_points}.by(-10)
+    expect{player_1.reduce_hit_points}.to change{player_1.hit_points}.by(-Player::DEFAULT_ATTACK)
     end
   end
 end
