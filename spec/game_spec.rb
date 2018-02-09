@@ -3,9 +3,9 @@ require 'player'
 
 describe Game do
 
-  subject(:game) {described_class.new("carlos", "Jenny")}
+  subject(:game) {described_class.new("Waitrose", "Tesco")}
   let(:player_1) { instance_double(Player, reduce_hit_points: 40, non_existant_method: true)}
-  let(:player_2) { Player.new("Jenny") }
+  let(:player_2) { Player.new("Tesco") }
 
   context "#initialize" do
     it "initalizes with player as argument" do
@@ -18,6 +18,12 @@ describe Game do
       # player_1.non_existant_method 
       # expect(player_1).to receive(:reduce_hit_points)
       expect { game.attack(player_2) }.to change {player_2.hit_points}.by (-Player::DEFAULT_ATTACK)
+    end
+  end
+
+  context "#current turn" do 
+    it "starts as player1's turn" do 
+      expect(game.current_turn).to eq player_1
     end
   end
 end
