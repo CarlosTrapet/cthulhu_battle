@@ -20,9 +20,10 @@ class Battle < Sinatra::Base
     erb :play
   end
 
-  post '/attack-conf' do 
-    $game.attack($game.player_2)
-    erb :attack_confirm
+  post '/attack' do 
+    $game.attack
+    $game.switch_turns
+    erb :attack
   end
 
   run! if app_file == $0

@@ -18,7 +18,7 @@ describe Game do
     it "reduces player's hit points by 10" do
       # player_1.non_existant_method 
       # expect(player_1).to receive(:reduce_hit_points)
-      expect { game.attack(player_2) }.to change {player_2.hit_points}.by (-Player::DEFAULT_ATTACK)
+      expect { game.attack }.to change {player_2.hit_points}.by (-Player::DEFAULT_ATTACK)
     end
   end
 

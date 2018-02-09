@@ -9,8 +9,12 @@ class Game
     @current_turn = @player_1
   end
 
-  def attack(player)
-    player.reduce_hit_points
+  def attack
+    if @current_turn == @player_1
+      @player_2.reduce_hit_points
+    elsif @current_turn == @player_2
+      @player_1.reduce_hit_points
+    end
   end
 
 
